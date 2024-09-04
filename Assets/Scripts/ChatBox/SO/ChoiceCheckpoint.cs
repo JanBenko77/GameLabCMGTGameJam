@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class ChoiceCheckpoint : DialogueLine
 {
-    //public List<Hint> requiredHints;
-
-    //Depending on the amount of acquired hints, the player will be able to have different conversations
-
     public Dialogue checkpointDialogue;
 
     public string choice1;
@@ -19,4 +15,9 @@ public class ChoiceCheckpoint : DialogueLine
     public Dialogue nextDialogue2;
     public Dialogue nextDialogue3;
     public Dialogue nextDialogue4;
+
+    public List<HintManager.HintName> requiredHints1;
+    public List<HintManager.HintName> requiredHints2;
+    public List<HintManager.HintName> requiredHints3;
+    public List<HintManager.HintName> requiredHints4;
 }

@@ -26,9 +26,9 @@ public class DialogueEditor : Editor
             AddElement(dialogueLinesProperty, typeof(Choice));
         }
 
-        if (GUILayout.Button("Add Checkpoint"))
+        if (GUILayout.Button("Add Flag"))
         {
-            AddElement(dialogueLinesProperty, typeof(Checkpoint));
+            AddElement(dialogueLinesProperty, typeof(Flag));
         }
 
         if (GUILayout.Button("Add ChoiceCheckpoint"))

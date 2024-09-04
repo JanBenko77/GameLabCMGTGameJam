@@ -23,7 +23,7 @@ MonoBehaviour:
     - rid: 786364217802620985
       type: {class: DialogueLine, ns: , asm: Assembly-CSharp}
       data:
-        character: {fileID: 11400000, guid: c25bceb923014d34e83e97bd63709a5d, type: 2}
+        character: {fileID: 11400000, guid: 97af366f5a667df48a407cd9c28bf0e0, type: 2}
         line: Hi
     - rid: 786364217802620986
       type: {class: DialogueLine, ns: , asm: Assembly-CSharp}

@@ -26,7 +26,6 @@ public class DialogueManager : MonoBehaviour
 
     public GameObject dialogueBox;
     public GameObject choicesBox;
-    public GameObject checkpointChoice;
 
     public TextMeshProUGUI choice1Text;
     public TextMeshProUGUI choice2Text;
@@ -93,13 +92,11 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueBox.SetActive(false);
             choicesBox.SetActive(true);
-            checkpointChoice.SetActive(false);
 
             choice1Text.text = choice.choice1;
             choice2Text.text = choice.choice2;
             choice3Text.text = choice.choice3;
             choice4Text.text = choice.choice4;
-
 
             choice1Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
             choice1Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choice.nextDialogue1));
@@ -113,7 +110,7 @@ public class DialogueManager : MonoBehaviour
             choice4Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
             choice4Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choice.nextDialogue4));
         }
-        else if (currentLine is Checkpoint checkpoint)
+        else if (currentLine is Flag checkpoint)
         {
             CheckpointReached(checkpoint);
         }
@@ -125,7 +122,6 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueBox.SetActive(true);
             choicesBox.SetActive(false);
-            checkpointChoice.SetActive(false);
 
             characterIcon.sprite = currentLine.character.icon;
             characterName.text = currentLine.character.name;
@@ -160,12 +156,10 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private void CheckpointReached(Checkpoint checkpoint)
+    private void CheckpointReached(Flag checkpoint)
     {
-        //DialogueManager sends a request to the HintsManager to check if the checkpoint's required hints have been collected
-        //if they have, the checkpoint will continue a different dialogue, if not, it will end the dialogue
-
-        if (hasHintTest)
+        // Check with HintManager if the required hints are collected
+        if (HintManager.Instance.HasHint(checkpoint.requiredHints))
         {
             StartDialogue(checkpoint.continueDialogue);
         }
@@ -173,37 +167,35 @@ public class DialogueManager : MonoBehaviour
         {
             EndDialogue();
         }
-
-        //if (HintsManager.Instance.CheckHints(checkpoint.requiredHints))
-        //{
-        //    StartDialogue(checkpoint.continueDialogue);
-        //}
-        //else
-        //{
-        //    EndDialogue();
-        //}
     }
 
     private void ChoiceCheckpointReached(ChoiceCheckpoint choiceCheckpoint)
     {
-        //DialogueManager sends a request to the HintsManager to check which choices the panel will display, depending on the acquired hints
-        //if the player has acquired a certain amount of hints, the panel will display different choices
-        //for example, if the player has acquired hint1 and hint3, the panel will display choice1 and choice3
-
-
         dialogueBox.SetActive(false);
-        choicesBox.SetActive(false);
-        checkpointChoice.SetActive(true);
+        choicesBox.SetActive(true);
 
-        //if (HintsManager.Instance.CheckHints(choiceCheckpoint.requiredHints))
-        //{
-        //    dialogueBox.SetActive(false);
-        //    choicesBox.SetActive(true);
-        //    choice1Text.text = choiceCheckpoint.choice1;
-        //    choice2Text.text = choiceCheckpoint.choice2;
-        //    choice3Text.text = choiceCheckpoint.choice3;
-        //    choice4Text.text = choiceCheckpoint.choice4;
-        //}
+        // Check which choices should be displayed based on collected hints
+        choice1.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints1));
+        choice2.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints2));
+        choice3.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints3));
+        choice4.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints4));
+
+        choice1Text.text = choiceCheckpoint.choice1;
+        choice2Text.text = choiceCheckpoint.choice2;
+        choice3Text.text = choiceCheckpoint.choice3;
+        choice4Text.text = choiceCheckpoint.choice4;
+
+        choice1Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
+        choice1Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceCheckpoint.nextDialogue1));
+
+        choice2Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
+        choice2Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceCheckpoint.nextDialogue2));
+
+        choice3Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
+        choice3Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceCheckpoint.nextDialogue3));
+
+        choice4Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
+        choice4Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceCheckpoint.nextDialogue4));
     }
 
     public void EndDialogue()
