@@ -73,7 +73,7 @@ public class HideObject : MonoBehaviour
 
             mRenderer.material.color = opacityColor;
 
-            if (opacityColor.a == 0)
+            if (opacityColor.a <= minOpacity)
             {
                 //mRenderer.enabled = false;
                 if (mCollider != null) mCollider.enabled = false;

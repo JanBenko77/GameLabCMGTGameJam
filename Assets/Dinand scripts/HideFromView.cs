@@ -14,8 +14,10 @@ public class HideFromView : MonoBehaviour
         posZ
     }
     [SerializeField] private BoundDirection boundDirection;
-    [SerializeField] public List<HideObject> hideObjects {  get; private set; }
+    [SerializeField] public List<HideObject> hideObjects {  get; private set; } = new List<HideObject>();
     [SerializeField] private List<HideFromView> childHiders = new List<HideFromView>();
+    [SerializeField] private float hightLimit = 500;
+    [SerializeField] private float maxPlayerDistance = 500;
 
     public bool disabledByParent;
     bool wasVisible;
@@ -23,7 +25,7 @@ public class HideFromView : MonoBehaviour
     private void Awake()
     {
         playerTransform = FindObjectOfType<PlayerInput>().transform;
-        hideObjects = new List<HideObject>();
+        //hideObjects = new List<HideObject>();
         hideObjects.AddRange(GetComponentsInChildren<HideObject>());
         childHiders.AddRange(GetComponentsInChildren<HideFromView>());
         childHiders.Remove(this);
@@ -34,6 +36,8 @@ public class HideFromView : MonoBehaviour
                 hideObjects.Remove(hfv.hideObjects[i]);
             }
         }
+
+        if (disabledByParent) return;
 
         bool isVisible = true;
         switch (boundDirection)
@@ -79,6 +83,7 @@ public class HideFromView : MonoBehaviour
                 if (playerTransform.position.z > transform.position.z + boundModifier) isVisible = false;
                 break;
         }
+        if (playerTransform.position.y >= hightLimit || Vector3.Distance(transform.position, playerTransform.position) >= maxPlayerDistance) isVisible = true;
         if (isVisible != wasVisible)
         {
             for (int i = 0; i < hideObjects.Count; i++)
@@ -100,7 +105,7 @@ public class HideFromView : MonoBehaviour
 
     public void SequenceCheck(bool isVisible)
     {
-        if (isVisible != wasVisible)
+        //if (isVisible != wasVisible)
         {
             for (int i = 0; i < hideObjects.Count; i++)
             {
@@ -111,5 +116,5 @@ public class HideFromView : MonoBehaviour
             }
             wasVisible = isVisible;
         }
-        }
+    }
 }
