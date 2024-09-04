@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ObjectInteraction : MonoBehaviour
 {
     public Text interactionText;
-    private bool hasInteracted = false;
     public string objectTag = "Collectible";
     private int itemsCollected = 0;
     private int totalItems;
@@ -29,11 +28,9 @@ public class ObjectInteraction : MonoBehaviour
 
    public void UpdateInteractionText()
     {
-        if (hasInteracted)
-        {
-            interactionText.text = "Items Collected: " + itemsCollected+ " / " + totalItems;
-        }
-        else
+       interactionText.text = "Items Collected: " + itemsCollected+ " / " + totalItems;
+
+       if(itemsCollected == totalItems)
         {
             interactionText.text = "All items collected!(" + itemsCollected + " / " + totalItems + ")";
         }
