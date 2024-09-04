@@ -8,17 +8,22 @@ public class PlayerInput : MonoBehaviour
 {
     public static PlayerInput instance;
     [SerializeField] private InputAction primaryInput;
+    [SerializeField] private InputAction cursorMove;
     [SerializeField] private LayerMask floorLayer;
     [SerializeField] private LayerMask interactableLayer;
     [SerializeField] private NavMeshAgent playerAgent;
     [SerializeField] private Camera mainCam;
     bool playerControllsActive = true;
 
+    [SerializeField] private GameObject magGlass;
+
     private void Awake()
     {
         instance = this;
         primaryInput.Enable();
         primaryInput.started += PrimaryInputStart;
+        //cursorMove.Enable();
+        //cursorMove.performed += CursorMoveDelta;
     }
 
     private void PrimaryInputStart(InputAction.CallbackContext context)
@@ -36,6 +41,22 @@ public class PlayerInput : MonoBehaviour
         }
         else if (Physics.Raycast(clickRay, out hit, 100f, floorLayer))
             playerAgent.SetDestination(hit.point);
+    }
+
+    private void CursorMoveDelta(InputAction.CallbackContext context)
+    {
+        magGlass.transform.position = mainCam.ScreenToViewportPoint(Pointer.current.position.ReadValue());
+        Ray clickRay = mainCam.ScreenPointToRay(Pointer.current.position.ReadValue());
+        RaycastHit hit;
+        if (Physics.Raycast(clickRay, out hit, 100f, interactableLayer) && playerControllsActive)
+        {
+            magGlass?.SetActive(true);
+        }
+        else
+        {
+            magGlass?.SetActive(false);
+        }
+
     }
     public void ActivatePlayerControlls()
     {
