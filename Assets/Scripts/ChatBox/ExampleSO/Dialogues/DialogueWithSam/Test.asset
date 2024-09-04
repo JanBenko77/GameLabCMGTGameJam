@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae52536c973b65f41910e43e3c42eed8, type: 3}
-  m_Name: 1
+  m_Name: Test
   m_EditorClassIdentifier: 
   dialogueLines:
-  - rid: 786364217802620948
-  - rid: 786364217802620949
-  - rid: 786364217802620984
+  - rid: 786364217802620973
+  - rid: 786364217802620974
+  - rid: 786364217802620983
   references:
     version: 2
     RefIds:
-    - rid: 786364217802620948
+    - rid: 786364217802620973
       type: {class: DialogueLine, ns: , asm: Assembly-CSharp}
       data:
         character: {fileID: 11400000, guid: c25bceb923014d34e83e97bd63709a5d, type: 2}
-        line: You chose 1 brooo
-    - rid: 786364217802620949
+        line: Anything else?
+    - rid: 786364217802620974
       type: {class: DialogueLine, ns: , asm: Assembly-CSharp}
       data:
         character: {fileID: 11400000, guid: 687a5301d750b3b4da3bbe6752a9fb24, type: 2}
-        line: Thanks lmao
-    - rid: 786364217802620984
+        line: No, I don't think so.
+    - rid: 786364217802620983
       type: {class: Checkpoint, ns: , asm: Assembly-CSharp}
       data:
         character: {fileID: 11400000, guid: 687a5301d750b3b4da3bbe6752a9fb24, type: 2}

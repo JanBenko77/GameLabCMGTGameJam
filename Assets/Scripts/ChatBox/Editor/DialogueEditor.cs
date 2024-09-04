@@ -26,6 +26,16 @@ public class DialogueEditor : Editor
             AddElement(dialogueLinesProperty, typeof(Choice));
         }
 
+        if (GUILayout.Button("Add Checkpoint"))
+        {
+            AddElement(dialogueLinesProperty, typeof(Checkpoint));
+        }
+
+        if (GUILayout.Button("Add ChoiceCheckpoint"))
+        {
+            AddElement(dialogueLinesProperty, typeof(ChoiceCheckpoint));
+        }
+
         if (GUILayout.Button("Remove Last Element"))
         {
             dialogueLinesProperty.arraySize--;

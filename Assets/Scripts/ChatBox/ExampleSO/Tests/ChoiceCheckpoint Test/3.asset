@@ -10,29 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae52536c973b65f41910e43e3c42eed8, type: 3}
-  m_Name: 1
+  m_Name: 3
   m_EditorClassIdentifier: 
   dialogueLines:
-  - rid: 786364217802620948
-  - rid: 786364217802620949
-  - rid: 786364217802620984
+  - rid: 786364217802621015
+  - rid: 786364217802621016
+  - rid: 786364217802621017
   references:
     version: 2
     RefIds:
-    - rid: 786364217802620948
+    - rid: 786364217802621015
       type: {class: DialogueLine, ns: , asm: Assembly-CSharp}
       data:
         character: {fileID: 11400000, guid: c25bceb923014d34e83e97bd63709a5d, type: 2}
-        line: You chose 1 brooo
-    - rid: 786364217802620949
+        line: You chose 3
+    - rid: 786364217802621016
       type: {class: DialogueLine, ns: , asm: Assembly-CSharp}
       data:
         character: {fileID: 11400000, guid: 687a5301d750b3b4da3bbe6752a9fb24, type: 2}
-        line: Thanks lmao
-    - rid: 786364217802620984
+        line: It's about to go back to the original
+    - rid: 786364217802621017
       type: {class: Checkpoint, ns: , asm: Assembly-CSharp}
       data:
         character: {fileID: 11400000, guid: 687a5301d750b3b4da3bbe6752a9fb24, type: 2}
         line: 
-        continueDialogue: {fileID: 11400000, guid: fea5f74cb4ba38449a5d3959976d113c,
+        continueDialogue: {fileID: 11400000, guid: e2da3e5abecae92468fa88d7f1f24aed,
           type: 2}
