@@ -1,14 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
-
-[System.Serializable]
-public class DialogueCharacter
-{
-    public string name;
-    public Sprite icon;
-}
 
 [System.Serializable]
 public class DialogueLine
@@ -19,9 +13,17 @@ public class DialogueLine
 }
 
 [System.Serializable]
-public class Dialogue
+public class Choice : DialogueLine
 {
-    public List<DialogueLine> dialogueLines = new List<DialogueLine>();
+    public string choice1;
+    public string choice2;
+    public string choice3;
+    public string choice4;
+
+    public Dialogue nextDialogue1;
+    public Dialogue nextDialogue2;
+    public Dialogue nextDialogue3;
+    public Dialogue nextDialogue4;
 }
 
 public class DialogueTrigger : MonoBehaviour
