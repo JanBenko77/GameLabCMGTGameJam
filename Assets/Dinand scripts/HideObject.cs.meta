@@ -1,13 +1,12 @@
 fileFormatVersion: 2
-guid: c122bf85fba34174a984bfb31569793e
+guid: c45f1a396d718ad489020620feae0c9f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - playerTransform: {instanceID: 0}
   - tpMaterial: {fileID: 2100000, guid: b7b7a21fe66a221459f67db965759f05, type: 2}
   - opMaterial: {fileID: 2100000, guid: ea650071c32bdc244b8cc09506504457, type: 2}
-  executionOrder: 101
+  executionOrder: 100
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 
