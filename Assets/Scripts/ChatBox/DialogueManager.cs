@@ -12,6 +12,15 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI characterName;
     public TextMeshProUGUI dialogueArea;
 
+    public GameObject dialogueBox;
+    public GameObject choicesBox;
+    public TextMeshProUGUI choice1Text;
+    public TextMeshProUGUI choice2Text;
+    public TextMeshProUGUI choice3Text;
+    public TextMeshProUGUI choice4Text;
+
+    private bool isChoosing = false;
+
     private Queue<DialogueLine> lines;
 
     public bool isDialogueActive = false;
@@ -19,6 +28,8 @@ public class DialogueManager : MonoBehaviour
     public float typingSpeed = 0.2f;
 
     public Animator animator;
+
+    private bool playAnimation = true;
 
     private void Start()
     {
@@ -35,7 +46,14 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         isDialogueActive = true;
-        animator.SetTrigger("TrOpen");
+        if (playAnimation)
+        {
+            animator.SetTrigger("TrOpen");
+        }
+        else
+        {
+            playAnimation = true;
+        }
 
         lines = new Queue<DialogueLine>();
 
@@ -57,13 +75,41 @@ public class DialogueManager : MonoBehaviour
 
         DialogueLine currentLine = lines.Dequeue();
 
-        characterIcon.sprite = currentLine.character.icon;
-        characterName.text = currentLine.character.name;
-        dialogueArea.text = "";
+        if (currentLine is Choice choice)
+        {
+            dialogueBox.SetActive(false);
+            choicesBox.SetActive(true);
 
-        StopAllCoroutines();
+            choice1Text.text = choice.choice1;
+            choice2Text.text = choice.choice2;
+            choice3Text.text = choice.choice3;
+            choice4Text.text = choice.choice4;
 
-        StartCoroutine(TypeSentence(currentLine));
+
+            choice1Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
+            choice1Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choice.nextDialogue1));
+
+            choice2Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
+            choice2Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choice.nextDialogue2));
+
+            choice3Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
+            choice3Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choice.nextDialogue3));
+
+            choice4Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
+            choice4Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choice.nextDialogue4));
+        }
+        else
+        {
+            dialogueBox.SetActive(true);
+            choicesBox.SetActive(false);
+
+            characterIcon.sprite = currentLine.character.icon;
+            characterName.text = currentLine.character.name;
+            dialogueArea.text = "";
+
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(currentLine));
+        }
     }
 
     IEnumerator TypeSentence(DialogueLine dialogueLine)
@@ -74,6 +120,19 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueArea.text += letter;
             yield return new WaitForSeconds(typingSpeed);
+        }
+    }
+
+    public void OnChoiceSelected(Dialogue nextDialogue)
+    {
+        if (nextDialogue != null)
+        {
+            playAnimation = false;
+            StartDialogue(nextDialogue);
+        }
+        else
+        {
+            EndDialogue();
         }
     }
 
