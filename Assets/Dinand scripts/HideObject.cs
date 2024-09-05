@@ -9,7 +9,7 @@ public class HideObject : MonoBehaviour
     
     Color opacityColor;
     bool revealing;
-    MeshRenderer mRenderer;
+    Renderer mRenderer;
     Collider mCollider;
     private const float minOpacity = 0.2f;
 
