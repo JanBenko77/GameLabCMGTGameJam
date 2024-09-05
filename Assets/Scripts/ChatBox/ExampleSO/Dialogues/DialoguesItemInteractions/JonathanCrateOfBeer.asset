@@ -17,6 +17,7 @@ MonoBehaviour:
   - rid: 5030115172387389460
   - rid: 5030115172387389461
   - rid: 5030115172387389462
+  - rid: 5030115184248619073
   references:
     version: 2
     RefIds:
@@ -41,3 +42,9 @@ MonoBehaviour:
       data:
         character: {fileID: 11400000, guid: 687a5301d750b3b4da3bbe6752a9fb24, type: 2}
         line: Oh nothing nothing.
+    - rid: 5030115184248619073
+      type: {class: DialogueEvent, ns: , asm: Assembly-CSharp}
+      data:
+        character: {fileID: 11400000, guid: 97af366f5a667df48a407cd9c28bf0e0, type: 2}
+        line: 
+        hintToCollect: 8

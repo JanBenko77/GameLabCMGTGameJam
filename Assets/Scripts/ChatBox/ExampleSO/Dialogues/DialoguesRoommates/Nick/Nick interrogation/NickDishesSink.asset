@@ -19,6 +19,7 @@ MonoBehaviour:
   - rid: 5030115172387389501
   - rid: 5030115172387389502
   - rid: 5030115172387389503
+  - rid: 5030115184248619074
   - rid: 5030115172387389505
   references:
     version: 2
@@ -70,3 +71,9 @@ MonoBehaviour:
           type: 2}
         nextDialogue3: {fileID: 0}
         nextDialogue4: {fileID: 0}
+    - rid: 5030115184248619074
+      type: {class: DialogueEvent, ns: , asm: Assembly-CSharp}
+      data:
+        character: {fileID: 11400000, guid: 97af366f5a667df48a407cd9c28bf0e0, type: 2}
+        line: 
+        hintToCollect: 7

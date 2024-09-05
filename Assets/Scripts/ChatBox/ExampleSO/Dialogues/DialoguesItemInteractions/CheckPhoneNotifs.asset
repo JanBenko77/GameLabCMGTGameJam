@@ -17,6 +17,7 @@ MonoBehaviour:
   - rid: 5030115172387389467
   - rid: 5030115172387389468
   - rid: 5030115172387389469
+  - rid: 5030115184248619069
   references:
     version: 2
     RefIds:
@@ -40,3 +41,9 @@ MonoBehaviour:
       data:
         character: {fileID: 11400000, guid: 97af366f5a667df48a407cd9c28bf0e0, type: 2}
         line: You keep getting notifications about "last night"
+    - rid: 5030115184248619069
+      type: {class: DialogueEvent, ns: , asm: Assembly-CSharp}
+      data:
+        character: {fileID: 11400000, guid: 97af366f5a667df48a407cd9c28bf0e0, type: 2}
+        line: 
+        hintToCollect: 5
