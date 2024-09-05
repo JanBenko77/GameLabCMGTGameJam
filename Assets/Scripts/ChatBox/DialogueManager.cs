@@ -165,7 +165,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            EndDialogue();
+            DisplayNextDialogueLine();
         }
     }
 
