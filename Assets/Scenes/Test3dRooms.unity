@@ -7930,6 +7930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Chr_DEA_Agent_Male_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1874913591707902, guid: 0ee090e1fd83f5f42aaa9724335db328, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4135308418504620, guid: 0ee090e1fd83f5f42aaa9724335db328, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5

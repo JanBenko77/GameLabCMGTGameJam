@@ -193,9 +193,9 @@ public class DialogueManager : MonoBehaviour
         dialogueBox.SetActive(false);
         choicesBox.SetActive(true);
 
-        choice1.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints1) && choiceCheckpoint.requiredHints1 == null);
-        choice2.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints2) && choiceCheckpoint.requiredHints2 == null);
-        choice3.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints3) && choiceCheckpoint.requiredHints3 == null);
+        choice1.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints1) );
+        choice2.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints2) );
+        choice3.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints3) );
         choice4.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints4) && choiceCheckpoint.requiredHints4 == null);
 
         choice1Text.text = choiceCheckpoint.choice1;
