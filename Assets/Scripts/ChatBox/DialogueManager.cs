@@ -193,9 +193,9 @@ public class DialogueManager : MonoBehaviour
         dialogueBox.SetActive(false);
         choicesBox.SetActive(true);
 
-        choice1.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints1));
-        choice2.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints2));
-        choice3.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints3));
+        choice1.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints1) && choiceCheckpoint.requiredHints1 == null);
+        choice2.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints2) && choiceCheckpoint.requiredHints2 == null);
+        choice3.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints3) && choiceCheckpoint.requiredHints3 == null);
         choice4.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints4) && choiceCheckpoint.requiredHints4 == null);
 
         choice1Text.text = choiceCheckpoint.choice1;
@@ -203,19 +203,19 @@ public class DialogueManager : MonoBehaviour
         choice3Text.text = choiceCheckpoint.choice3;
         choice4Text.text = choiceCheckpoint.choice4;
 
-        if (HintManager.Instance.HasHint(choiceCheckpoint.requiredHints1))
+        if (HintManager.Instance.HasHint(choiceCheckpoint.requiredHints1) && choiceCheckpoint.requiredHints1 == null)
         {
             choice1Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
             choice1Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceCheckpoint.nextDialogue1));
         }
 
-        if (HintManager.Instance.HasHint(choiceCheckpoint.requiredHints2))
+        if (HintManager.Instance.HasHint(choiceCheckpoint.requiredHints2) && choiceCheckpoint.requiredHints2 == null)
         {
             choice2Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
             choice2Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceCheckpoint.nextDialogue2));
         }
 
-        if (HintManager.Instance.HasHint(choiceCheckpoint.requiredHints3))
+        if (HintManager.Instance.HasHint(choiceCheckpoint.requiredHints3) && choiceCheckpoint.requiredHints3 == null)
         {
             choice3Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
             choice3Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceCheckpoint.nextDialogue3));
