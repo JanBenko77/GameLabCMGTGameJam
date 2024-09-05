@@ -196,12 +196,7 @@ public class DialogueManager : MonoBehaviour
         choice1.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints1));
         choice2.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints2));
         choice3.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints3));
-        choice4.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints4));
-
-        if (choiceCheckpoint.requiredHints4 == null)
-        {
-            choice4.SetActive(false);
-        }
+        choice4.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints4) && choiceCheckpoint.requiredHints4 == null);
 
         choice1Text.text = choiceCheckpoint.choice1;
         choice2Text.text = choiceCheckpoint.choice2;
@@ -226,7 +221,7 @@ public class DialogueManager : MonoBehaviour
             choice3Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceCheckpoint.nextDialogue3));
         }
 
-        if (HintManager.Instance.HasHint(choiceCheckpoint.requiredHints4))
+        if (HintManager.Instance.HasHint(choiceCheckpoint.requiredHints4) && choiceCheckpoint.requiredHints4 == null)
         {
             choice4Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
             choice4Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceCheckpoint.nextDialogue4));
