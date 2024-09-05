@@ -15,7 +15,8 @@ MonoBehaviour:
   dialogueLines:
   - rid: 786364217802621001
   - rid: 786364217802621002
-  - rid: 786364217802621005
+  - rid: 786364229272731649
+  - rid: 786364229272731650
   references:
     version: 2
     RefIds:
@@ -29,10 +30,16 @@ MonoBehaviour:
       data:
         character: {fileID: 11400000, guid: 687a5301d750b3b4da3bbe6752a9fb24, type: 2}
         line: Is it?
-    - rid: 786364217802621005
-      type: {class: Checkpoint, ns: , asm: Assembly-CSharp}
+    - rid: 786364229272731649
+      type: {class: Flag, ns: , asm: Assembly-CSharp}
       data:
         character: {fileID: 11400000, guid: 687a5301d750b3b4da3bbe6752a9fb24, type: 2}
         line: 
+        requiredHints: 
         continueDialogue: {fileID: 11400000, guid: 75c0e82e14ee81b4597e9942a9e5d542,
           type: 2}
+    - rid: 786364229272731650
+      type: {class: DialogueLine, ns: , asm: Assembly-CSharp}
+      data:
+        character: {fileID: 11400000, guid: c25bceb923014d34e83e97bd63709a5d, type: 2}
+        line: Ok brother?
