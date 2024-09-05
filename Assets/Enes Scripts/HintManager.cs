@@ -7,10 +7,14 @@ public class HintManager : MonoBehaviour
 
     public enum HintName
     {
-        Bottle,
-        Pot,
-        Beer,
-        Cigarette
+        BeerBottle,
+        PlantsVase,
+        SinkPlates,
+        Blunt,
+        DoorKnocked,
+        CheckedNotifs,
+        NightNoises,
+        NickClue
     }
 
     private Dictionary<HintName, bool> collectedHints;

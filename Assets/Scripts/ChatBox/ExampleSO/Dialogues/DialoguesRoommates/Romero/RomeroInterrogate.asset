@@ -47,8 +47,8 @@ MonoBehaviour:
         nextDialogue3: {fileID: 11400000, guid: 43065c9dec3035d44b624740878eba30,
           type: 2}
         nextDialogue4: {fileID: 0}
-        requiredHints1: 00000000
-        requiredHints2: 00000000
+        requiredHints1: 03000000
+        requiredHints2: 02000000
         requiredHints3: 00000000
         requiredHints4: 
     - rid: 5030115172387389576

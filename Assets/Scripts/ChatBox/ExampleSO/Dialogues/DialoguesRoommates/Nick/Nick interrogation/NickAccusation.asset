@@ -42,7 +42,7 @@ MonoBehaviour:
         line: Romero and Jess told me they heard stuff at night and I find it really
           REALLY hard to believe that you, the night owl, would just ignore the sounds
           and go back to doing your own thing.
-        requiredHints: 00000000
+        requiredHints: 06000000
         continueDialogue: {fileID: 0}
     - rid: 5030115172387389512
       type: {class: DialogueLine, ns: , asm: Assembly-CSharp}
