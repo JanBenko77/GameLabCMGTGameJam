@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Romero
   m_EditorClassIdentifier: 
   characterName: Romero
-  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: 360737c3170b0054a97c3e4d3dfcbd30, type: 3}
