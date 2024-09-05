@@ -17,6 +17,7 @@ MonoBehaviour:
   - rid: 5030115172387389452
   - rid: 5030115172387389453
   - rid: 5030115172387389454
+  - rid: 5030115184248619071
   references:
     version: 2
     RefIds:
@@ -41,3 +42,9 @@ MonoBehaviour:
       data:
         character: {fileID: 11400000, guid: 97af366f5a667df48a407cd9c28bf0e0, type: 2}
         line: Romero is always smoking. It could have only been him right?
+    - rid: 5030115184248619071
+      type: {class: DialogueEvent, ns: , asm: Assembly-CSharp}
+      data:
+        character: {fileID: 11400000, guid: 97af366f5a667df48a407cd9c28bf0e0, type: 2}
+        line: 
+        hintToCollect: 3

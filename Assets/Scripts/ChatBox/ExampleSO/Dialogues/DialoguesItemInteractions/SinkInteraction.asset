@@ -16,6 +16,7 @@ MonoBehaviour:
   - rid: 5030115172387389440
   - rid: 5030115172387389442
   - rid: 5030115172387389473
+  - rid: 5030115184248619070
   references:
     version: 2
     RefIds:
@@ -37,3 +38,9 @@ MonoBehaviour:
 
 
           I should check his room.'
+    - rid: 5030115184248619070
+      type: {class: DialogueEvent, ns: , asm: Assembly-CSharp}
+      data:
+        character: {fileID: 11400000, guid: 97af366f5a667df48a407cd9c28bf0e0, type: 2}
+        line: 
+        hintToCollect: 2

@@ -16,6 +16,7 @@ MonoBehaviour:
   - rid: 5030115172387389456
   - rid: 5030115172387389457
   - rid: 5030115172387389458
+  - rid: 5030115184248619068
   references:
     version: 2
     RefIds:
@@ -35,3 +36,9 @@ MonoBehaviour:
         character: {fileID: 11400000, guid: 97af366f5a667df48a407cd9c28bf0e0, type: 2}
         line: Always the same bullshit with Jonathan. Getting drunk, coming home
           and leaving his mess behind
+    - rid: 5030115184248619068
+      type: {class: DialogueEvent, ns: , asm: Assembly-CSharp}
+      data:
+        character: {fileID: 11400000, guid: 97af366f5a667df48a407cd9c28bf0e0, type: 2}
+        line: 
+        hintToCollect: 0

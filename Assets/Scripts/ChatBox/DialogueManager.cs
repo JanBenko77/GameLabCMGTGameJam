@@ -73,6 +73,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        PlayerInput.instance.DisablePlayerControlls();
         isDialogueActive = true;
         if (playAnimation)
         {
@@ -237,5 +238,6 @@ public class DialogueManager : MonoBehaviour
     {
         isDialogueActive = false;
         animator.SetTrigger("TrClose");
+        PlayerInput.instance.ActivatePlayerControlls();
     }
 }
