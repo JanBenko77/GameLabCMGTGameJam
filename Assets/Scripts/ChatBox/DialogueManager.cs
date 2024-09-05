@@ -198,6 +198,11 @@ public class DialogueManager : MonoBehaviour
         choice3.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints3));
         choice4.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints4));
 
+        if (choiceCheckpoint.requiredHints4 == null)
+        {
+            choice4.SetActive(false);
+        }
+
         choice1Text.text = choiceCheckpoint.choice1;
         choice2Text.text = choiceCheckpoint.choice2;
         choice3Text.text = choiceCheckpoint.choice3;
