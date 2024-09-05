@@ -133,6 +133,10 @@ public class DialogueManager : MonoBehaviour
         {
             ChoiceCheckpointReached(choiceCheckpoint);
         }
+        else if (currentLine is DialogueEvent dialogueEvent)
+        {
+            TriggerDialogueEvent(dialogueEvent);
+        }
         else
         {
             dialogueBox.SetActive(true);
@@ -198,17 +202,35 @@ public class DialogueManager : MonoBehaviour
         choice3Text.text = choiceCheckpoint.choice3;
         choice4Text.text = choiceCheckpoint.choice4;
 
-        choice1Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
-        choice1Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceCheckpoint.nextDialogue1));
+        if (HintManager.Instance.HasHint(choiceCheckpoint.requiredHints1))
+        {
+            choice1Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
+            choice1Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceCheckpoint.nextDialogue1));
+        }
 
-        choice2Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
-        choice2Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceCheckpoint.nextDialogue2));
+        if (HintManager.Instance.HasHint(choiceCheckpoint.requiredHints2))
+        {
+            choice2Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
+            choice2Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceCheckpoint.nextDialogue2));
+        }
 
-        choice3Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
-        choice3Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceCheckpoint.nextDialogue3));
+        if (HintManager.Instance.HasHint(choiceCheckpoint.requiredHints3))
+        {
+            choice3Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
+            choice3Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceCheckpoint.nextDialogue3));
+        }
 
-        choice4Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
-        choice4Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceCheckpoint.nextDialogue4));
+        if (HintManager.Instance.HasHint(choiceCheckpoint.requiredHints4))
+        {
+            choice4Text.GetComponentInParent<Button>().onClick.RemoveAllListeners();
+            choice4Text.GetComponentInParent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceCheckpoint.nextDialogue4));
+        }
+    }
+
+    private void TriggerDialogueEvent(DialogueEvent dialogueEvent)
+    {
+        HintManager.Instance.AddHint(dialogueEvent.hintToCollect);
+        DisplayNextDialogueLine();
     }
 
     public void EndDialogue()
