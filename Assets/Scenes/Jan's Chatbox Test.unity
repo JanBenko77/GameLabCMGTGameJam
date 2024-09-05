@@ -1362,7 +1362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0182d96de7bee644afee1d10a84a537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: 8e55d247f6a676c4dab9cdb7c6d21ca1, type: 2}
+  dialogue: {fileID: 11400000, guid: 8c7224a66bb41674b883d29abc0f769a, type: 2}
 --- !u!222 &746558536
 CanvasRenderer:
   m_ObjectHideFlags: 0
