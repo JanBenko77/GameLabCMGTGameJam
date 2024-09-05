@@ -14,7 +14,20 @@ public class DialogueEditor : Editor
         {
             SerializedProperty element = dialogueLinesProperty.GetArrayElementAtIndex(i);
             EditorGUILayout.PropertyField(element, new GUIContent($"Element {i}"), true);
+
+            EditorGUILayout.BeginHorizontal();
+            if (GUILayout.Button("Move Up") && i > 0)
+            {
+                dialogueLinesProperty.MoveArrayElement(i, i - 1);
+            }
+            if (GUILayout.Button("Move Down") && i < dialogueLinesProperty.arraySize - 1)
+            {
+                dialogueLinesProperty.MoveArrayElement(i, i + 1);
+            }
+            EditorGUILayout.EndHorizontal();
         }
+
+        GUILayout.Space(20);
 
         if (GUILayout.Button("Add Dialogue Line"))
         {
