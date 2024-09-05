@@ -33,9 +33,7 @@ public class DialogueSequencer : MonoBehaviour
         }
 
         Dialogue nextDialogue = currentBox.dialogues[0];
-        //currentBox.dialogues.RemoveAt(0);
 
-        // If the current dialogue box is empty and it's not the last one in the list, remove it
         if (dialogueBoxes.Count > 1)
         {
             dialogueBoxes.RemoveAt(currentDialogueBoxIndex);
