@@ -29,7 +29,7 @@ MonoBehaviour:
       data:
         character: {fileID: 11400000, guid: 97af366f5a667df48a407cd9c28bf0e0, type: 2}
         line: Something starts to move
-        requiredHints: 00000000
+        requiredHints: 04000000
         continueDialogue: {fileID: 11400000, guid: 53c7d3e97aef92143b2f8e59b6e9ca4b,
           type: 2}
     - rid: 5030115172387389488

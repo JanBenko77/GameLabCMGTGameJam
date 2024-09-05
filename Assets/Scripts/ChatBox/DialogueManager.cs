@@ -8,18 +8,6 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance;
 
-    public bool hasHintTest = false;
-
-    public void SetHintTest()
-    {
-        hasHintTest = !hasHintTest;
-    }
-
-    public GameObject choice1;
-    public GameObject choice2;
-    public GameObject choice3;
-    public GameObject choice4;
-
     public Image characterIcon;
     public TextMeshProUGUI characterName;
     public TextMeshProUGUI dialogueArea;
@@ -27,6 +15,10 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialogueBox;
     public GameObject choicesBox;
 
+    public GameObject choice1;
+    public GameObject choice2;
+    public GameObject choice3;
+    public GameObject choice4;
     public TextMeshProUGUI choice1Text;
     public TextMeshProUGUI choice2Text;
     public TextMeshProUGUI choice3Text;
@@ -44,6 +36,16 @@ public class DialogueManager : MonoBehaviour
 
     private bool playAnimation = true;
 
+    private void OnEnable()
+    {
+        DialogueSequencer.OnDialogueSequencerStart += StartDialogueSequencer;
+    }
+
+    private void OnDisable()
+    {
+        DialogueSequencer.OnDialogueSequencerStart -= StartDialogueSequencer;
+    }
+
     private void Start()
     {
         if (Instance == null)
@@ -53,6 +55,19 @@ public class DialogueManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    public void StartDialogueSequencer(DialogueSequencer dialogueSequencer)
+    {
+        Dialogue nextDialogue = dialogueSequencer.GetNextDialogue();
+        if (nextDialogue != null)
+        {
+            StartDialogue(nextDialogue);
+        }
+        else
+        {
+            EndDialogue();
         }
     }
 
@@ -158,7 +173,6 @@ public class DialogueManager : MonoBehaviour
 
     private void CheckpointReached(Flag checkpoint)
     {
-        // Check with HintManager if the required hints are collected
         if (HintManager.Instance.HasHint(checkpoint.requiredHints))
         {
             StartDialogue(checkpoint.continueDialogue);
@@ -174,7 +188,6 @@ public class DialogueManager : MonoBehaviour
         dialogueBox.SetActive(false);
         choicesBox.SetActive(true);
 
-        // Check which choices should be displayed based on collected hints
         choice1.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints1));
         choice2.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints2));
         choice3.SetActive(HintManager.Instance.HasHint(choiceCheckpoint.requiredHints3));

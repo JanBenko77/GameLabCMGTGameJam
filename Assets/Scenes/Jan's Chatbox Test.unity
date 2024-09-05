@@ -340,6 +340,7 @@ RectTransform:
   - {fileID: 846863748}
   - {fileID: 466236200}
   - {fileID: 949753506}
+  - {fileID: 556296737}
   - {fileID: 1037979599}
   - {fileID: 1007127805}
   m_Father: {fileID: 0}
@@ -932,6 +933,131 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 488707837}
+  m_CullTransparentMesh: 1
+--- !u!1 &556296736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 556296737}
+  - component: {fileID: 556296741}
+  - component: {fileID: 556296740}
+  - component: {fileID: 556296739}
+  - component: {fileID: 556296738}
+  m_Layer: 5
+  m_Name: SequencerTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &556296737
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556296736}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 339430871}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 676, y: 350}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &556296738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556296736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 556296740}
+          m_TargetAssemblyTypeName: DialogueSequencer, Assembly-CSharp
+          m_MethodName: StartSequencer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &556296739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556296736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.60962725, g: 0, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &556296740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556296736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8812544dc17b7d4f979eb865759d6da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueBoxes:
+  - dialogues:
+    - {fileID: 11400000, guid: 8e55d247f6a676c4dab9cdb7c6d21ca1, type: 2}
+  - dialogues:
+    - {fileID: 11400000, guid: 003327602e4926441a5f05fbde2dd910, type: 2}
+  - dialogues:
+    - {fileID: 11400000, guid: e2da3e5abecae92468fa88d7f1f24aed, type: 2}
+--- !u!222 &556296741
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556296736}
   m_CullTransparentMesh: 1
 --- !u!1 &569899265
 GameObject:
@@ -3769,16 +3895,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cbdae559d5baf48a3dae4c95bb6621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasHintTest: 0
-  choice1: {fileID: 1760078673}
-  choice2: {fileID: 396230105}
-  choice3: {fileID: 1123236887}
-  choice4: {fileID: 1038941893}
   characterIcon: {fileID: 263479271}
   characterName: {fileID: 880052110}
   dialogueArea: {fileID: 626096007}
   dialogueBox: {fileID: 1310209842}
   choicesBox: {fileID: 634575215}
+  choice1: {fileID: 1760078673}
+  choice2: {fileID: 396230105}
+  choice3: {fileID: 1123236887}
+  choice4: {fileID: 1038941893}
   choice1Text: {fileID: 857746088}
   choice2Text: {fileID: 414447708}
   choice3Text: {fileID: 1518329042}
