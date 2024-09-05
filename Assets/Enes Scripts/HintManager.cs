@@ -14,7 +14,8 @@ public class HintManager : MonoBehaviour
         DoorKnocked,
         CheckedNotifs,
         NightNoises,
-        NickClue
+        NickClue,
+        JonathanCrates
     }
 
     private Dictionary<HintName, bool> collectedHints;
