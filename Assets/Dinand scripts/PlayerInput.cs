@@ -22,8 +22,8 @@ public class PlayerInput : MonoBehaviour
         instance = this;
         primaryInput.Enable();
         primaryInput.started += PrimaryInputStart;
-        //cursorMove.Enable();
-        //cursorMove.performed += CursorMoveDelta;
+        cursorMove.Enable();
+        cursorMove.performed += CursorMoveDelta;
     }
 
     private void PrimaryInputStart(InputAction.CallbackContext context)
@@ -45,16 +45,18 @@ public class PlayerInput : MonoBehaviour
 
     private void CursorMoveDelta(InputAction.CallbackContext context)
     {
-        magGlass.transform.position = mainCam.ScreenToViewportPoint(Pointer.current.position.ReadValue());
+        if (magGlass != null) magGlass.transform.position = Pointer.current.position.ReadValue();
+        //magGlass.transform.position = mainCam.ScreenToViewportPoint(Pointer.current.position.ReadValue());
         Ray clickRay = mainCam.ScreenPointToRay(Pointer.current.position.ReadValue());
         RaycastHit hit;
         if (Physics.Raycast(clickRay, out hit, 100f, interactableLayer) && playerControllsActive)
         {
-            magGlass?.SetActive(true);
+            if (magGlass != null) magGlass.SetActive(true);
+            Debug.Log("Point at interactable");
         }
         else
         {
-            magGlass?.SetActive(false);
+            if (magGlass != null) magGlass.SetActive(false);
         }
 
     }
