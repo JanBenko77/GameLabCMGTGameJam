@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Nick
   m_EditorClassIdentifier: 
   characterName: Nick
-  icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: 8344b1aa8714b6d49998daf8c9c5d1a0, type: 3}

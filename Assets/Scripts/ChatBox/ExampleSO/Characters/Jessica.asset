@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Jessica
   m_EditorClassIdentifier: 
   characterName: Jessica
-  icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: 4d4e20f9693f8cb4db488153cefb1713, type: 3}
