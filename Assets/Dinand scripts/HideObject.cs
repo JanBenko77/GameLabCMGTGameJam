@@ -15,7 +15,7 @@ public class HideObject : MonoBehaviour
 
     private void Awake()
     {
-        mRenderer = GetComponent<MeshRenderer>();
+        mRenderer = GetComponent<Renderer>();
         mCollider = GetComponent<Collider>();
         opacityColor = mRenderer.material.color;
 
